@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: "Montserrat";
+}
+
+p {
+  color: #8f8f8f;
+}
+.nav-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e2f3fd;
+  height: 4rem;
+}
+.logo1 {
+  margin-left: 2rem;
+}
+.logo {
+  /* width: 4rem; */
+  /* height: 3rem; */
+  /* margin-left: 2rem; */
+  /* margin-top: 1rem; */
+  font-size: 1.2rem;
+  color: #000000;
+  text-align: center;
+}
+.logo:hover{
+  color: grey;
+}
+.nav1 {
+  margin-right: 3rem;
+}
+.nav2 {
+  /* margin-right: 3rem; */
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #000000;
+  /* transition: 0.6s; */
+  /* height:2rem;
+    width: 5rem; */
+  margin-top: 1rem;
+  text-align: center;
+  /* margin-bottom: 15px; */
+  margin-right: 3rem;
+}
+.nav2:hover{
+  text-decoration: none;
+  color: grey;
+  border-bottom: 1px solid grey;
+}
+.banner {
+  width: 100%;
+  height: 400px;
+}
+.banner-container {
+  position: relative;
+}
+.h2 {
+  position: absolute;
+  bottom: 120px;
+  left: 40px;
+}
+.btn1 {
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+}
+
+.tag {
+  text-align: center;
+  padding: 2rem 6rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+#pricing {
+  padding: 40px 100px;
+}
+
+.price-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.pricing-column {
+  padding: 2% 2%;
+}
+
+.service{
+  text-align: center;
+}
+.clogo{
+  text-align: center;
+}
+#press {
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+.press-logo {
+  /* width: 15%; */
+  margin: 50px 100px;
+}
+.social-icon {
+  margin: 20px 10px;  
+}
+.copyright{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer{
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #e2f3fd;
+}
+.footer1{
+  margin-left: 20px;
+  margin-top: 10px;
+
+}
+.footer2{
+  margin-right: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.foot{
+  margin-left: 10px;
+  margin-right: 10px;
+  /* margin-top: 10px; */
+  /* margin-right: 3rem; */
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+}
+.privacy{
+  padding-bottom: 30px;
+}
+.foot:hover{
+  text-decoration: none;
+  color: grey;
+}
