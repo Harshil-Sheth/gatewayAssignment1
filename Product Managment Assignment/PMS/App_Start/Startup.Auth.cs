@@ -55,8 +55,8 @@ namespace PMS
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "441282630365122",
-               appSecret: "345671ebbe216b540488df85fc9d64bf");
+               appId: "",
+               appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
