@@ -1,0 +1,6 @@
+C:\Projects\HMS.WebApi\HMS.Models\bin\Debug\HMS.Models.dll
+C:\Projects\HMS.WebApi\HMS.Models\bin\Debug\HMS.Models.pdb
+C:\Projects\HMS.WebApi\HMS.Models\obj\Debug\HMS.Models.csprojAssemblyReference.cache
+C:\Projects\HMS.WebApi\HMS.Models\obj\Debug\HMS.Models.csproj.CoreCompileInputs.cache
+C:\Projects\HMS.WebApi\HMS.Models\obj\Debug\HMS.Models.dll
+C:\Projects\HMS.WebApi\HMS.Models\obj\Debug\HMS.Models.pdb

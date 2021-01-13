@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HotelManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Bookings">
+          <Key>
+            <PropertyRef Name="BookingId" />
+          </Key>
+          <Property Name="BookingId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Hotels">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" Nullable="false" />
+          <Property Name="HotelName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pincode" Type="int" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Rooms">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="smallmoney" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelId" Type="int" />
+        </EntityType>
+        <Association Name="FK_tbl_Hotels_tbl_Rooms">
+          <End Role="tbl_Hotels" Type="Self.tbl_Hotels" Multiplicity="0..1" />
+          <End Role="tbl_Rooms" Type="Self.tbl_Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="tbl_Rooms">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Rooms_tbl_Bookings">
+          <End Role="tbl_Rooms" Type="Self.tbl_Rooms" Multiplicity="0..1" />
+          <End Role="tbl_Bookings" Type="Self.tbl_Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="tbl_Bookings">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelManagementSystemModelStoreContainer">
+          <EntitySet Name="tbl_Bookings" EntityType="Self.tbl_Bookings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Hotels" EntityType="Self.tbl_Hotels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Rooms" EntityType="Self.tbl_Rooms" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_Hotels_tbl_Rooms" Association="Self.FK_tbl_Hotels_tbl_Rooms">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_Rooms" EntitySet="tbl_Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Rooms_tbl_Bookings" Association="Self.FK_tbl_Rooms_tbl_Bookings">
+            <End Role="tbl_Rooms" EntitySet="tbl_Rooms" />
+            <End Role="tbl_Bookings" EntitySet="tbl_Bookings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Bookings">
+          <Key>
+            <PropertyRef Name="BookingId" />
+          </Key>
+          <Property Name="BookingId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomId" Type="Int32" />
+          <NavigationProperty Name="tbl_Rooms" Relationship="Self.FK_tbl_Rooms_tbl_Bookings" FromRole="tbl_Bookings" ToRole="tbl_Rooms" />
+        </EntityType>
+        <EntityType Name="tbl_Hotels">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pincode" Type="Int32" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Rooms" Relationship="Self.FK_tbl_Hotels_tbl_Rooms" FromRole="tbl_Hotels" ToRole="tbl_Rooms" />
+        </EntityType>
+        <EntityType Name="tbl_Rooms">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelId" Type="Int32" />
+          <NavigationProperty Name="tbl_Bookings" Relationship="Self.FK_tbl_Rooms_tbl_Bookings" FromRole="tbl_Rooms" ToRole="tbl_Bookings" />
+          <NavigationProperty Name="tbl_Hotels" Relationship="Self.FK_tbl_Hotels_tbl_Rooms" FromRole="tbl_Rooms" ToRole="tbl_Hotels" />
+        </EntityType>
+        <Association Name="FK_tbl_Rooms_tbl_Bookings">
+          <End Role="tbl_Rooms" Type="Self.tbl_Rooms" Multiplicity="0..1" />
+          <End Role="tbl_Bookings" Type="Self.tbl_Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="tbl_Bookings">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Hotels_tbl_Rooms">
+          <End Role="tbl_Hotels" Type="Self.tbl_Hotels" Multiplicity="0..1" />
+          <End Role="tbl_Rooms" Type="Self.tbl_Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="tbl_Rooms">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Bookings" EntityType="Self.tbl_Bookings" />
+          <EntitySet Name="tbl_Hotels" EntityType="Self.tbl_Hotels" />
+          <EntitySet Name="tbl_Rooms" EntityType="Self.tbl_Rooms" />
+          <AssociationSet Name="FK_tbl_Rooms_tbl_Bookings" Association="Self.FK_tbl_Rooms_tbl_Bookings">
+            <End Role="tbl_Rooms" EntitySet="tbl_Rooms" />
+            <End Role="tbl_Bookings" EntitySet="tbl_Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Hotels_tbl_Rooms" Association="Self.FK_tbl_Hotels_tbl_Rooms">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_Rooms" EntitySet="tbl_Rooms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelManagementSystemModelStoreContainer" CdmEntityContainer="HotelManagementSystemEntities">
+          <EntitySetMapping Name="tbl_Bookings">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.tbl_Bookings">
+              <MappingFragment StoreEntitySet="tbl_Bookings">
+                <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Hotels">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.tbl_Hotels">
+              <MappingFragment StoreEntitySet="tbl_Hotels">
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Rooms">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.tbl_Rooms">
+              <MappingFragment StoreEntitySet="tbl_Rooms">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

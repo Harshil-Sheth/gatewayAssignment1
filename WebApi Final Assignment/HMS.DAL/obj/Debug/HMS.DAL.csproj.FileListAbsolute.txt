@@ -1,0 +1,14 @@
+C:\Projects\HMS.WebApi\HMS.DAL\obj\Debug\HMS.DAL.csprojAssemblyReference.cache
+C:\Projects\HMS.WebApi\HMS.DAL\obj\Debug\HMS.DAL.csproj.CoreCompileInputs.cache
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\HMS.DAL.dll.config
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\HMS.DAL.dll
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\HMS.DAL.pdb
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\EntityFramework.dll
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\HMS.Models.dll
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\HMS.Models.pdb
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\EntityFramework.xml
+C:\Projects\HMS.WebApi\HMS.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\HMS.WebApi\HMS.DAL\obj\Debug\HMS.DAL.csproj.CopyComplete
+C:\Projects\HMS.WebApi\HMS.DAL\obj\Debug\HMS.DAL.dll
+C:\Projects\HMS.WebApi\HMS.DAL\obj\Debug\HMS.DAL.pdb
